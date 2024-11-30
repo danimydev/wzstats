@@ -10,21 +10,7 @@ const command = new SlashCommandBuilder()
   .setDescription("Provides information about the current CoD meta.");
 
 async function handler(interaction: CommandInteraction<CacheType>) {
-  const tierLists = await wzstatsRepository.getTierLists();
-  const weapons = await wzstatsRepository.getWeapons();
-  const formattedWeapons = tierLists.rankedResurgence.META
-    .map((weaponId) => {
-      const weapon = weapons.find((w) => w.id === weaponId);
-      if (weapon) {
-        return {
-          ...weapon,
-          imageUrl:
-            `https://imagedelivery.net/BN5t48p9frV5wW3Jpe6Ujw/${weapon.id}/gunDisplayLoadouts`,
-        };
-      }
-    })
-    .filter((w) => typeof w !== "undefined");
-
+  const formattedWeapons = await buildFormattedWeapons();
   return interaction.reply({
     content: "Warzone Meta",
     embeds: buildWeaponEmbeds(formattedWeapons.toSpliced(6)),
