@@ -74,4 +74,4 @@ setInterval(async () => {
     );
     await Promise.all(messagesPromise);
   }
-}, 60 * 60 * 24);
+}, 1000 * 60 * 60 * 24);
