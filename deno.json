@@ -1,9 +1,9 @@
 {
   "tasks": {
-    "start": "deno run --allow-run --env-file --allow-env --allow-net --allow-read --unstable-cron src/main.ts",
-    "dev": "deno run --allow-run --env-file --allow-env --allow-net --allow-read --unstable-cron --watch src/main.ts",
+    "start": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --unstable-cron src/main.ts",
+    "dev": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --unstable-cron --watch src/main.ts",
     "ingest": "deno run --allow-net --allow-write src/wzstats/scripts/ingest.ts",
-    "register-commands": "deno run --env-file --allow-env --allow-net --allow-read src/bot/deploy.ts"
+    "register-commands": "deno run --unstable-kv --env-file --allow-env --allow-net --allow-read src/bot/deploy.ts"
   },
   "imports": {
     "path": "https://deno.land/std@0.224.0/path/mod.ts",
