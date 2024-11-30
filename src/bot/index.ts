@@ -4,6 +4,9 @@ import metaCommand, {
   buildFormattedWeapons,
   buildWeaponEmbeds,
 } from "./commands/meta.ts";
+import subscribeCommand from "./commands/subscribe.ts";
+import unsubscribeCommand from "./commands/unsubscribe.ts";
+import * as channelsRepository from "./channels/repository.ts";
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
@@ -15,6 +18,14 @@ client.on("interactionCreate", (interaction) => {
     switch (interaction.commandName) {
       case "meta":
         metaCommand.handler(interaction);
+        break;
+
+      case "subscribe":
+        subscribeCommand.handler(interaction);
+        break;
+
+      case "unsubscribe":
+        unsubscribeCommand.handler(interaction);
         break;
 
       default:
@@ -59,7 +70,12 @@ Deno.cron("Run once every 12 hours", { hour: { every: 12 } }, async () => {
 
 setInterval(async () => {
   if (client.isReady()) {
-    const channelsId = ["1312127556140666920"];
+    const channelsId = (await channelsRepository.getChannels()).map((c) =>
+      c.id
+    );
+    if (config.DEV_CHANNEL_ID) {
+      channelsId.push(config.DEV_CHANNEL_ID);
+    }
     const channelsPromise = channelsId.map((channelId) =>
       client.channels.fetch(channelId)
     );

@@ -1,12 +1,16 @@
 import { REST } from "npm:@discordjs/rest";
 import config from "./config.ts";
 import metaCommand from "./commands/meta.ts";
+import subscribeCommand from "./commands/subscribe.ts";
+import unsubscribeCommand from "./commands/unsubscribe.ts";
 
 const url = `applications/${config.APPLICATION_ID}/commands`;
 const rest = new REST().setToken(config.TOKEN);
 
 const commands = [
   metaCommand.command.toJSON(),
+  subscribeCommand.command.toJSON(),
+  unsubscribeCommand.command.toJSON(),
 ];
 
 console.log(`Started refreshing ${commands.length} application (/) commands.`);
