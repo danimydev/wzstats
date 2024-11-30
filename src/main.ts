@@ -1,0 +1,1 @@
+import "./bot/index.ts";
