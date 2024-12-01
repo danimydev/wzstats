@@ -3,7 +3,7 @@
     "start": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --unstable-cron src/main.ts",
     "dev": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --unstable-cron --watch src/main.ts",
     "ingest": "deno run --allow-net --allow-write src/wzstats/scripts/ingest.ts",
-    "register-commands": "deno run --allow-env --allow-net src/bot/deploy.ts"
+    "register-commands": "deno run --allow-env --allow-net --unstable-kv src/bot/deploy.ts"
   },
   "imports": {
     "path": "https://deno.land/std@0.224.0/path/mod.ts",
