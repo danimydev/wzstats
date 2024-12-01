@@ -1,11 +1,23 @@
+import { parseArgs } from "jsr:@std/cli/parse-args";
 import { REST } from "npm:@discordjs/rest";
-import config from "./config.ts";
 import metaCommand from "./commands/meta.ts";
 import subscribeCommand from "./commands/subscribe.ts";
 import unsubscribeCommand from "./commands/unsubscribe.ts";
 
-const url = `applications/${config.APPLICATION_ID}/commands`;
-const rest = new REST().setToken(config.TOKEN);
+const { id, token } = parseArgs(Deno.args, {
+  string: ["id", "token"],
+});
+
+if (!id) {
+  throw new Error("app id is required");
+}
+
+if (!token) {
+  throw new Error("token is required");
+}
+
+const url = `applications/${id}/commands`;
+const rest = new REST().setToken(token);
 
 const commands = [
   metaCommand.command.toJSON(),

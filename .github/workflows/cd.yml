@@ -34,4 +34,4 @@ jobs:
           deno-version: v2.x
 
       - name: Register commands
-        run: deno task register-commands
+        run: deno task register-commands --id=${{env.APPLICATION_ID}} --token=${{env.DISCORD_BOT_TOKEN}}
