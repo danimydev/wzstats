@@ -35,6 +35,6 @@ jobs:
 
       - name: Debug args
         run: echo "${{ env.APPLICATION_ID }} ${{ env.DISCORD_BOT_TOKEN }}"
-        
+
       - name: Register commands
         run: deno task register-commands --id=${{env.APPLICATION_ID}} --token=${{env.DISCORD_BOT_TOKEN}}
