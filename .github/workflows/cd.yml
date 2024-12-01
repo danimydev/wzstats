@@ -16,8 +16,12 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  register-commands:
     runs-on: ubuntu-latest
+
+    env:
+      APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
 
     steps:
       - name: Setup repo
