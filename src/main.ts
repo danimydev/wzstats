@@ -1,5 +1,5 @@
 import "./bot/index.ts";
 
 Deno.serve(() => {
-  return new Response("Hello World");
+  return new Response("Hello World - wzstats");
 });
