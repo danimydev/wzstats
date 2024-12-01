@@ -1,5 +1,7 @@
 import { Client, Events, GatewayIntentBits } from "npm:discord.js";
+
 import config from "./config.ts";
+
 import metaCommand, {
   buildFormattedWeapons,
   buildWeaponEmbeds,

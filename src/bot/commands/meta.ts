@@ -1,5 +1,6 @@
-import { EmbedBuilder, SlashCommandBuilder } from "npm:@discordjs/builders";
-import { CacheType, CommandInteraction } from "npm:discord.js";
+import { CacheType, CommandInteraction } from "discord.js";
+import { EmbedBuilder, SlashCommandBuilder } from "@discordjs/builders";
+
 import * as wzstatsRepository from "../../wzstats/repository.ts";
 
 // gold, silver, bronze

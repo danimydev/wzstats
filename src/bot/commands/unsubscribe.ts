@@ -1,5 +1,6 @@
+import { CacheType, CommandInteraction } from "discord.js";
 import { SlashCommandBuilder } from "npm:@discordjs/builders";
-import { CacheType, CommandInteraction } from "npm:discord.js";
+
 import * as channelsRepository from "../channels/repository.ts";
 
 const command = new SlashCommandBuilder()
