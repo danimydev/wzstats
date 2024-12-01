@@ -19,10 +19,6 @@ jobs:
   register-commands:
     runs-on: ubuntu-latest
 
-    env:
-      APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
-      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-
     steps:
       - name: Setup repo
         uses: actions/checkout@v4
@@ -33,8 +29,8 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Debug args
-        run: echo "${{ env.APPLICATION_ID }} ${{ env.DISCORD_BOT_TOKEN }}"
-
       - name: Register commands
-        run: deno task register-commands --id=${{env.APPLICATION_ID}} --token=${{env.DISCORD_BOT_TOKEN}}
+        run: deno task register-commands --id="$APPLICATION_ID" --token="$DISCORD_BOT_TOKEN"
+        env:
+          APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
