@@ -1,5 +1,6 @@
-import { parseArgs } from "jsr:@std/cli/parse-args";
-import { REST } from "npm:@discordjs/rest";
+import { parseArgs } from "@std/cli/parse-args";
+import { REST } from "@discordjs/rest";
+
 import metaCommand from "./commands/meta.ts";
 import subscribeCommand from "./commands/subscribe.ts";
 import unsubscribeCommand from "./commands/unsubscribe.ts";
