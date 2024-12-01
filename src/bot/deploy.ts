@@ -4,7 +4,7 @@ import metaCommand from "./commands/meta.ts";
 import subscribeCommand from "./commands/subscribe.ts";
 import unsubscribeCommand from "./commands/unsubscribe.ts";
 
-const {id, token} = parseArgs(Deno.args, {
+const { id, token } = parseArgs(Deno.args, {
   string: ["id", "token"],
 });
 
