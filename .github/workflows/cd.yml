@@ -29,9 +29,8 @@ jobs:
         with:
           deno-version: v2.x
 
+      - name: Debug Secrets
+        run: echo "--id=${{ secrets.APPLICATION_ID }} --token=${{ secrets.DISCORD_BOT_TOKEN }}"
+
       - name: Register commands
-        shell: bash
-        env:
-          APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
-          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-        run: deno task register-commands --id="$APPLICATION_ID" --token="$DISCORD_BOT_TOKEN"
+        run: deno task register-commands --id=${{ secrets.APPLICATION_ID }} --token=${{ secrets.DISCORD_BOT_TOKEN }}
