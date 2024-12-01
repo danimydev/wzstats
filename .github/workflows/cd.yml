@@ -30,7 +30,8 @@ jobs:
           deno-version: v2.x
 
       - name: Register commands
-        run: deno task register-commands --id="$APPLICATION_ID" --token="$DISCORD_BOT_TOKEN"
+        shell: bash
         env:
           APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
           DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        run: deno task register-commands --id="$APPLICATION_ID" --token="$DISCORD_BOT_TOKEN"
