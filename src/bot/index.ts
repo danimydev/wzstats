@@ -46,7 +46,7 @@ client.once(Events.ClientReady, (readyClient) => {
 
 client.login(config.TOKEN);
 
-Deno.cron("Run once every 12 hours", { hour: { every: 12 } }, async () => {
+Deno.cron("Ingest from wzstats", { hour: { every: 12 } }, async () => {
   console.log("Running cron job...");
 
   const ingestCommand = new Deno.Command(Deno.execPath(), {
@@ -70,7 +70,9 @@ Deno.cron("Run once every 12 hours", { hour: { every: 12 } }, async () => {
   }
 });
 
-setInterval(async () => {
+Deno.cron("Daily meta post", { hour: { every: 23 } }, async () => {
+  console.log("Running cron job...");
+
   if (client.isReady()) {
     const channelsId = (await channelsRepository.getChannels()).map((c) =>
       c.id
@@ -92,4 +94,6 @@ setInterval(async () => {
     );
     await Promise.all(messagesPromise);
   }
-}, 1000 * 60 * 60 * 24);
+
+  return console.log("Cron job ran successfully!");
+});
