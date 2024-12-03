@@ -42,7 +42,7 @@ Deno.cron("Daily meta post", { minute: { every: 1 } }, async () => {
       return channel.send({
         content: "Warzone Meta",
         embeds: buildWeaponEmbeds(formattedWeapons.toSpliced(6)),
-      })
+      });
     });
     await Promise.all(messagesPromise);
   }
