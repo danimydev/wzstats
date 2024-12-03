@@ -19,6 +19,8 @@ jobs:
   register-commands:
     runs-on: ubuntu-latest
 
+    environment: production
+
     steps:
       - name: Setup repo
         uses: actions/checkout@v4
