@@ -10,13 +10,13 @@ import ingestWzStats from "./wzstats/ingest.ts";
 
 client.login(config.TOKEN);
 
-Deno.cron("Ingest from wzstats", { minute: { every: 1 } }, async () => {
+Deno.cron("Ingest from wzstats", { hour: { every: 23 } }, async () => {
   console.log("Running cron job...");
   await ingestWzStats();
   console.log("Cron job ran successfully!");
 });
 
-Deno.cron("Daily meta post", { minute: { every: 1 } }, async () => {
+Deno.cron("Daily meta post", { hour: { every: 23 } }, async () => {
   console.log("Running cron job...");
   console.log("Running daily meta post...");
   if (client.isReady()) {
