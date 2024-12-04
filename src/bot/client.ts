@@ -1,12 +1,10 @@
 import { Client, Events, GatewayIntentBits } from "npm:discord.js";
-
 import config from "./config.ts";
+import * as meta from "./commands/meta.ts";
+import * as subscribe from "./commands/subscribe.ts";
+import * as unsubscribe from "./commands/unsubscribe.ts";
 
-import metaCommand from "./commands/meta.ts";
-import subscribeCommand from "./commands/subscribe.ts";
-import unsubscribeCommand from "./commands/unsubscribe.ts";
-
-export const client = new Client({
+const client = new Client({
   intents: [GatewayIntentBits.Guilds],
 });
 
@@ -15,15 +13,15 @@ client.on("interactionCreate", (interaction) => {
   if (isCommand) {
     switch (interaction.commandName) {
       case "meta":
-        metaCommand.handler(interaction);
+        meta.handler(interaction);
         break;
 
       case "subscribe":
-        subscribeCommand.handler(interaction);
+        subscribe.handler(interaction);
         break;
 
       case "unsubscribe":
-        unsubscribeCommand.handler(interaction);
+        unsubscribe.handler(interaction);
         break;
 
       default:
@@ -41,3 +39,5 @@ client.once(Events.ClientReady, (readyClient) => {
 });
 
 client.login(config.TOKEN);
+
+export default client;

@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "start": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --allow-write --unstable-cron src/main.ts",
-    "dev": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --allow-write --unstable-cron --watch src/main.ts",
+    "start": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --allow-write --unstable-cron src/index.ts",
+    "dev": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --allow-write --unstable-cron --watch src/index.ts",
     "register-commands": "deno run --allow-env --allow-net --unstable-kv src/bot/deploy.ts"
   },
   "imports": {
@@ -9,7 +9,6 @@
     "@discordjs/rest": "npm:@discordjs/rest@^2.4.0",
     "@std/cli": "jsr:@std/cli@^1.0.7",
     "@std/path": "jsr:@std/path@^1.0.8",
-    "discord.js": "npm:discord.js@^14.16.3",
-    "valibot": "npm:valibot@^1.0.0-beta.9"
+    "discord.js": "npm:discord.js@^14.16.3"
   }
 }

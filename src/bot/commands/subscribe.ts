@@ -1,13 +1,12 @@
 import { CacheType, CommandInteraction } from "discord.js";
 import { SlashCommandBuilder } from "@discordjs/builders";
+import * as channelsRepository from "../repositories/channel.ts";
 
-import * as channelsRepository from "../channels/repository.ts";
-
-const command = new SlashCommandBuilder()
+export const command = new SlashCommandBuilder()
   .setName("subscribe")
   .setDescription("Subscribe this channel to wzstats daily message");
 
-async function handler(interaction: CommandInteraction<CacheType>) {
+export async function handler(interaction: CommandInteraction<CacheType>) {
   const channel = interaction.channel;
   if (!channel) {
     return interaction.reply("No channel id found");
@@ -18,8 +17,3 @@ async function handler(interaction: CommandInteraction<CacheType>) {
   });
   return interaction.reply("Channel subscribed 🟢");
 }
-
-export default {
-  command,
-  handler,
-};
