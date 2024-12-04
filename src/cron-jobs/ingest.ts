@@ -73,15 +73,6 @@ export default async function ingest() {
     }),
   ]);
 
-  const tierLists = await tierListRepository.getTierList(
-    "rankedResurgence",
-    "META",
-  );
-  console.log({
-    tierLists,
-    wzStatsTierList: wzStatsTierList.rankedResurgence.META,
-  });
-
   console.log("Inserted data into Deno KV");
 
   console.log("🟢 Successfully ran ingest cron job");

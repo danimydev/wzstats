@@ -43,5 +43,4 @@ const data = await rest.put(
   nsfw: boolean;
 }[];
 
-console.log(data.map((e) => e.name));
-console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+console.log(`Successfully reloaded ${data.length} application (/) commands.`, data.map((e) => e.name));
