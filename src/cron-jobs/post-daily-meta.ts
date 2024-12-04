@@ -1,3 +1,4 @@
+import { ChannelType } from "discord.js";
 import client from "../bot/client.ts";
 import config from "../bot/config.ts";
 import * as channelRepository from "../bot/repositories/channel.ts";
@@ -25,7 +26,7 @@ export default async function postDailyMeta() {
 
   console.log("Getting actual text channels...");
   const textChannels = (await Promise.all(channelsPromise))
-    .filter((channel) => channel !== null && channel.type === 0);
+    .filter((channel) => channel !== null && channel.type === ChannelType.GuildText);
 
   console.log("Getting ranked resurgense meta tier list...");
   const tierList = await tierListRepositoy.getTierList(

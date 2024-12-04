@@ -1,4 +1,4 @@
-import { Client, Events, GatewayIntentBits } from "npm:discord.js";
+import { ActivityType, Client, Events, GatewayIntentBits } from "npm:discord.js";
 import config from "./config.ts";
 import * as meta from "./commands/meta.ts";
 import * as subscribe from "./commands/subscribe.ts";
@@ -13,19 +13,19 @@ client.on("interactionCreate", (interaction) => {
   const isCommand = interaction.isCommand();
   if (isCommand) {
     switch (interaction.commandName) {
-      case "meta":
+      case meta.command.name:
         meta.handler(interaction);
         break;
 
-      case "subscribe":
+      case subscribe.command.name:
         subscribe.handler(interaction);
         break;
 
-      case "unsubscribe":
+      case unsubscribe.command.name:
         unsubscribe.handler(interaction);
         break;
 
-      case "help":
+      case help.command.name:
         help.handler(interaction);
         break;
 
@@ -38,8 +38,8 @@ client.on("interactionCreate", (interaction) => {
 client.once(Events.ClientReady, (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`);
   readyClient.user.setActivity({
-    name: "Call of Duty Warzone",
-    type: 0,
+    name: "📡 wzstats.gg",
+    type: ActivityType.Custom,
   });
 });
 
