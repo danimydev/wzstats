@@ -1,9 +1,9 @@
 import { parseArgs } from "@std/cli/parse-args";
 import { REST } from "@discordjs/rest";
 
-import metaCommand from "../commands/meta.ts";
-import subscribeCommand from "../commands/subscribe.ts";
-import unsubscribeCommand from "../commands/unsubscribe.ts";
+import * as meta from "../commands/meta.ts";
+import * as subscribe from "../commands/subscribe.ts";
+import * as unsubscribe from "../commands/unsubscribe.ts";
 
 const { id, token } = parseArgs(Deno.args, {
   string: ["id", "token"],
@@ -21,9 +21,9 @@ const url = `applications/${id}/commands`;
 const rest = new REST().setToken(token);
 
 const commands = [
-  metaCommand.command.toJSON(),
-  subscribeCommand.command.toJSON(),
-  unsubscribeCommand.command.toJSON(),
+  meta.command.toJSON(),
+  subscribe.command.toJSON(),
+  unsubscribe.command.toJSON(),
 ];
 
 console.log(`Started refreshing ${commands.length} application (/) commands.`);

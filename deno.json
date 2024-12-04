@@ -2,7 +2,7 @@
   "tasks": {
     "start": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --allow-write --unstable-cron src/index.ts",
     "dev": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --allow-write --unstable-cron --watch src/index.ts",
-    "register-commands": "deno run --allow-env --allow-net --unstable-kv src/bot/deploy.ts"
+    "register-commands": "deno run --allow-env --allow-net --unstable-kv src/bot/scripts/deploy.ts"
   },
   "imports": {
     "@discordjs/builders": "npm:@discordjs/builders@^1.9.0",
