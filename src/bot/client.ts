@@ -3,6 +3,7 @@ import config from "./config.ts";
 import * as meta from "./commands/meta.ts";
 import * as subscribe from "./commands/subscribe.ts";
 import * as unsubscribe from "./commands/unsubscribe.ts";
+import * as help from "./commands/help.ts";
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
@@ -22,6 +23,10 @@ client.on("interactionCreate", (interaction) => {
 
       case "unsubscribe":
         unsubscribe.handler(interaction);
+        break;
+
+      case "help":
+        help.handler(interaction);
         break;
 
       default:

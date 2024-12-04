@@ -4,6 +4,7 @@ import { REST } from "@discordjs/rest";
 import * as meta from "../commands/meta.ts";
 import * as subscribe from "../commands/subscribe.ts";
 import * as unsubscribe from "../commands/unsubscribe.ts";
+import * as help from "../commands/help.ts";
 
 const { id, token } = parseArgs(Deno.args, {
   string: ["id", "token"],
@@ -24,6 +25,7 @@ const commands = [
   meta.command.toJSON(),
   subscribe.command.toJSON(),
   unsubscribe.command.toJSON(),
+  help.command.toJSON(),
 ];
 
 console.log(`Started refreshing ${commands.length} application (/) commands.`);
