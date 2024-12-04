@@ -6,7 +6,7 @@ import ingest from "./cron-jobs/ingest.ts";
 client.login(config.TOKEN);
 
 // Runs twice every 12 hours
-Deno.cron("Ingest", { minute: { every: 1 } }, ingest);
+Deno.cron("Ingest", "0 0,12 * * *", ingest);
 
 // Runs every day at 6am
 Deno.cron("Daily meta post", "0 6 * * *", postDailyMeta);
