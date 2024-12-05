@@ -26,7 +26,9 @@ export default async function postDailyMeta() {
 
   console.log("Getting actual text channels...");
   const textChannels = (await Promise.all(channelsPromise))
-    .filter((channel) => channel !== null && channel.type === ChannelType.GuildText);
+    .filter((channel) =>
+      channel !== null && channel.type === ChannelType.GuildText
+    );
 
   console.log("Getting ranked resurgense meta tier list...");
   const tierList = await tierListRepositoy.getTierList(

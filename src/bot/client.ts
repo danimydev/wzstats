@@ -1,4 +1,9 @@
-import { ActivityType, Client, Events, GatewayIntentBits } from "npm:discord.js";
+import {
+  ActivityType,
+  Client,
+  Events,
+  GatewayIntentBits,
+} from "npm:discord.js";
 import config from "./config.ts";
 import * as meta from "./commands/meta.ts";
 import * as subscribe from "./commands/subscribe.ts";
