@@ -1,4 +1,5 @@
 {
+  "version": "0.0.1-alpha",
   "tasks": {
     "start": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --allow-write --unstable-cron src/index.ts",
     "dev": "deno run --unstable-kv --allow-run --env-file --allow-env --allow-net --allow-read --allow-write --unstable-cron --watch src/index.ts",
