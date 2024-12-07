@@ -48,29 +48,35 @@ export default async function ingest() {
     })
   );
 
+  const tierListIds: tierListRepository.TierList["id"][] = [
+    "rankedResurgence",
+    "bo6",
+    "bo6Zombies",
+    "bo6Ranked",
+  ];
+  const tierListCategories: tierListRepository.TierList["category"][] = [
+    "META",
+    "A",
+    "B",
+    "C",
+    "D",
+  ];
+
+  const addTierListPromises: Promise<void>[] = [];
+  for (const id of tierListIds) {
+    for (const category of tierListCategories) {
+      addTierListPromises.push(tierListRepository.addTierList({
+        id,
+        category,
+        value: wzStatsTierList[id][category],
+      }));
+    }
+  }
+
   console.log("Inserting data into Deno KV...");
   await Promise.all([
     ...addWeaponPromises,
-    tierListRepository.addTierList({
-      id: "rankedResurgence",
-      category: "META",
-      value: wzStatsTierList.rankedResurgence.META,
-    }),
-    tierListRepository.addTierList({
-      id: "bo6",
-      category: "META",
-      value: wzStatsTierList.bo6.META,
-    }),
-    tierListRepository.addTierList({
-      id: "bo6Zombies",
-      category: "META",
-      value: wzStatsTierList.bo6Zombies.META,
-    }),
-    tierListRepository.addTierList({
-      id: "bo6Ranked",
-      category: "META",
-      value: wzStatsTierList.bo6Ranked.META,
-    }),
+    ...addTierListPromises,
   ]);
 
   console.log("Inserted data into Deno KV");
