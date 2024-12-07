@@ -18,9 +18,10 @@ deno task dev
 ## Configuration
 
 ### Base
-| Environment Variable | Description                                                            |
-|----------------------|------------------------------------------------------------------------|
-| APPLICATION_ID       | Discord Discord bot app id                                             |
-| PUBLIC_KEY           | Public Discord bot key                                                 |
-| DISCORD_BOT_TOKEN    | Secret Discord bot token                                               |
-| DEV_CHANNEL_ID       | Guild id you will use to develop new features                          |
+
+| Environment Variable | Description                                   |
+| -------------------- | --------------------------------------------- |
+| APPLICATION_ID       | Discord Discord bot app id                    |
+| PUBLIC_KEY           | Public Discord bot key                        |
+| DISCORD_BOT_TOKEN    | Secret Discord bot token                      |
+| DEV_CHANNEL_ID       | Guild id you will use to develop new features |
