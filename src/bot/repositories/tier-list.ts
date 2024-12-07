@@ -5,7 +5,7 @@ const BASE_KEY = "tier_lists";
 type TierListId = "rankedResurgence" | "bo6" | "bo6Zombies" | "bo6Ranked";
 type TierListCategory = "META" | "A" | "B" | "C" | "D";
 
-type TierList = {
+export type TierList = {
   id: TierListId;
   category: TierListCategory;
   value: string[];
