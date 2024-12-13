@@ -61,6 +61,8 @@ export function handler(interaction: CommandInteraction<CacheType>) {
         `
         > **Usage**
         > \`/${meta.command.name}\`
+        > \`/${meta.command.name} <game> - defaults to Warzone Resurgence\`
+        > \`/${meta.command.name} <game> <tier> - defaults to META\`
         
         > **Description**
         > ${meta.command.description}
