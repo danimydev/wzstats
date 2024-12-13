@@ -58,8 +58,8 @@ export async function handler(interaction: CommandInteraction<CacheType>) {
   const weapons = (await Promise.all(weaponsPromise)).filter((w) => w !== null);
 
   return interaction.reply({
-    content: `> ${game.toUpperCase()} - ${tier.toUpperCase()}`,
-    embeds: weapons.map(buildWeaponEmbed).slice(0, 6),
+    content: `### ${game.toUpperCase()} - ${tier.toUpperCase()}`,
+    embeds: weapons.slice(0, 6).map(buildWeaponEmbed),
     ephemeral: true,
   });
 }
