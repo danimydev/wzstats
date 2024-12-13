@@ -1,5 +1,7 @@
 # Wzstats
 
+Unofficial wzstats.gg discord bot
+
 ## Usage
 
 There is no build / deps installation required.
