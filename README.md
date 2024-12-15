@@ -27,3 +27,4 @@ deno task dev
 | PUBLIC_KEY           | Public Discord bot key                        |
 | DISCORD_BOT_TOKEN    | Secret Discord bot token                      |
 | DEV_CHANNEL_ID       | Guild id you will use to develop new features |
+| ADMIN_KEY            | Secret you will use to interact with the api  |

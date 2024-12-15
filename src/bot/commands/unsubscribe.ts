@@ -1,6 +1,6 @@
 import { CacheType, CommandInteraction } from "discord.js";
 import { SlashCommandBuilder } from "npm:@discordjs/builders";
-import * as channelsRepository from "../repositories/channel.ts";
+import * as channelsRepository from "../../repositories/channel.ts";
 
 export const command = new SlashCommandBuilder()
   .setName("unsubscribe")

@@ -1,9 +1,9 @@
 import { ChannelType } from "discord.js";
 import client from "../bot/client.ts";
 import config from "../bot/config.ts";
-import * as channelRepository from "../bot/repositories/channel.ts";
-import * as tierListRepositoy from "../bot/repositories/tier-list.ts";
-import * as weaponRepository from "../bot/repositories/weapon.ts";
+import * as channelRepository from "../repositories/channel.ts";
+import * as tierListRepositoy from "../repositories/tier-list.ts";
+import * as weaponRepository from "../repositories/weapon.ts";
 import buildWeaponEmbed from "../bot/utils/build-weapon-embed.ts";
 
 export default async function postDailyMeta() {

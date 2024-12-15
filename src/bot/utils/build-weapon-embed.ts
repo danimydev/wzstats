@@ -1,5 +1,5 @@
 import { EmbedBuilder } from "@discordjs/builders";
-import { Weapon } from "../repositories/weapon.ts";
+import { Weapon } from "../../repositories/weapon.ts";
 
 const colors = [15844367, 12370112, 11027200];
 
