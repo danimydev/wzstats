@@ -1,6 +1,7 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@hono/hono@^4.6.14": "4.6.14",
     "jsr:@std/cli@^1.0.7": "1.0.7",
     "jsr:@std/path@^1.0.8": "1.0.8",
     "npm:@discordjs/builders@*": "1.9.0",
@@ -10,6 +11,9 @@
     "npm:discord.js@^14.16.3": "14.16.3"
   },
   "jsr": {
+    "@hono/hono@4.6.14": {
+      "integrity": "b39a5488266adf448fb1081bc3071a0d05145e72f3ab3ff83cf140e780c6c1de"
+    },
     "@std/cli@1.0.7": {
       "integrity": "98359df9df586a69015ba570305183b0cb9e7d53c05ea2016ef9a3e77e82c7cd"
     },
@@ -160,6 +164,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@hono/hono@^4.6.14",
       "jsr:@std/cli@^1.0.7",
       "jsr:@std/path@^1.0.8",
       "npm:@discordjs/builders@^1.9.0",
