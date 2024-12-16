@@ -3,8 +3,8 @@ import {
   SlashCommandBuilder,
   SlashCommandStringOption,
 } from "@discordjs/builders";
-import * as weaponRepository from "../repositories/weapon.ts";
-import * as tierListRepositoy from "../repositories/tier-list.ts";
+import * as weaponRepository from "../../repositories/weapon.ts";
+import * as tierListRepositoy from "../../repositories/tier-list.ts";
 import validateTierListId from "../utils/validate-tier-list-id.ts";
 import validateTierListCategory from "../utils/validate-tier-list-category.ts";
 import buildWeaponEmbed from "../utils/build-weapon-embed.ts";

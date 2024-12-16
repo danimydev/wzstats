@@ -1,4 +1,4 @@
-import { TierList } from "../repositories/tier-list.ts";
+import { TierList } from "../../repositories/tier-list.ts";
 
 export default function validateTierListId(id: string): TierList["id"] {
   const tierListCategories = [

@@ -1,9 +1,8 @@
 import { ChannelType } from "discord.js";
 import client from "../bot/client.ts";
-import config from "../bot/config.ts";
-import * as channelRepository from "../bot/repositories/channel.ts";
-import * as tierListRepositoy from "../bot/repositories/tier-list.ts";
-import * as weaponRepository from "../bot/repositories/weapon.ts";
+import * as channelRepository from "../repositories/channel.ts";
+import * as tierListRepositoy from "../repositories/tier-list.ts";
+import * as weaponRepository from "../repositories/weapon.ts";
 import buildWeaponEmbed from "../bot/utils/build-weapon-embed.ts";
 
 export default async function postDailyMeta() {
@@ -16,8 +15,10 @@ export default async function postDailyMeta() {
   console.log("Getting subscribed channels id...");
   const channelsId = (await channelRepository.getChannels()).map((c) => c.id);
 
-  if (config.DEV_CHANNEL_ID) {
-    channelsId.push(config.DEV_CHANNEL_ID);
+  if (!channelsId.length) {
+    console.log("No subscribed channels found...");
+    console.log("🟢  Successfully ran post daily meta cron job");
+    return;
   }
 
   const channelsPromise = channelsId.map((channelId) =>
