@@ -15,12 +15,6 @@ export default async function postDailyMeta() {
   console.log("Getting subscribed channels id...");
   const channelsId = (await channelRepository.getChannels()).map((c) => c.id);
 
-  if (!channelsId.length) {
-    console.log("No subscribed channels found...");
-    console.log("🟢  Successfully ran post daily meta cron job");
-    return;
-  }
-
   const channelsPromise = channelsId.map((channelId) =>
     client.channels.fetch(channelId)
   );
