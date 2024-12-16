@@ -4,7 +4,6 @@ import {
   Events,
   GatewayIntentBits,
 } from "npm:discord.js";
-import config from "./config.ts";
 import * as meta from "./commands/meta.ts";
 import * as subscribe from "./commands/subscribe.ts";
 import * as unsubscribe from "./commands/unsubscribe.ts";
@@ -47,7 +46,5 @@ client.once(Events.ClientReady, (readyClient) => {
     type: ActivityType.Custom,
   });
 });
-
-client.login(config.TOKEN);
 
 export default client;

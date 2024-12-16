@@ -78,8 +78,5 @@ export default async function ingest() {
     ...addWeaponPromises,
     ...addTierListPromises,
   ]);
-
-  console.log("Inserted data into Deno KV");
-
   console.log("🟢 Successfully ran ingest cron job");
 }
