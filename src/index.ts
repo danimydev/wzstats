@@ -6,7 +6,7 @@ import app from "./api/index.ts";
 
 client.login(config.TOKEN);
 
-Deno.cron("Ingest", { minute: { every: 1 } }, ingest);
+Deno.cron("Ingest", { hour: { every: 1 } }, ingest);
 Deno.cron("Daily meta post", { hour: { exact: 0 } }, postDailyMeta);
 
 Deno.serve(app.fetch);
