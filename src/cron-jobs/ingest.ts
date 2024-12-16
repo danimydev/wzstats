@@ -73,7 +73,7 @@ export default async function ingest() {
     }
   }
 
-  console.log("Inserting data into Deno KV..."); 
+  console.log("Inserting data into Deno KV...");
   await Promise.all([
     ...addWeaponPromises,
     ...addTierListPromises,
