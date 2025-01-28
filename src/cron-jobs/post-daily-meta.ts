@@ -25,6 +25,11 @@ export default async function postDailyMeta() {
       channel !== null && channel.type === ChannelType.GuildText
     );
 
+  if (textChannels.length === 0) {
+    console.log("No subscribe text channels");
+    return;
+  }
+
   console.log("Getting ranked resurgense meta tier list...");
   const tierList = await tierListRepositoy.getTierList(
     "rankedResurgence",
@@ -39,9 +44,9 @@ export default async function postDailyMeta() {
     .map((weaponId) => weaponRepository.getWeapon(weaponId));
 
   const weapons = (await Promise.all(weaponsPromise)).filter((w) => w !== null)
-    .filter((w) => w.game === "bo6");
+    .filter((w) => w.game === "bo6").slice(0, 6);
 
-  const weaponsEmbed = weapons.map(buildWeaponEmbed).slice(0, 6);
+  const weaponsEmbed = weapons.map(buildWeaponEmbed);
 
   const messagesPromise = textChannels.map((channel) =>
     channel.send({
