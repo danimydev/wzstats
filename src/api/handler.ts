@@ -2,6 +2,7 @@ import * as channelsRepository from "../repositories/channel.ts";
 import * as tierListsRepository from "../repositories/tier-list.ts";
 import * as Utils from "./utils.ts";
 import config from "./config.ts";
+import ingest from "../cron-jobs/ingest.ts";
 
 const handler: Deno.ServeHandler<Deno.NetAddr> = async (req) => {
   const { method, headers, url } = req;
@@ -49,6 +50,19 @@ const handler: Deno.ServeHandler<Deno.NetAddr> = async (req) => {
 
     if (method === "DELETE") {
       await tierListsRepository.deleteTierLists();
+      return new Response("OK", { status: 200 });
+    }
+  }
+
+  if (pathname === "/ingest") {
+    const adminKey = headers.get("x-admin-key");
+
+    if (config.ADMIN_KEY !== adminKey) {
+      return new Response("Unauthorized", { status: 401 });
+    }
+
+    if (method === "POST") {
+      await ingest();
       return new Response("OK", { status: 200 });
     }
   }

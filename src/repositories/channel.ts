@@ -28,7 +28,10 @@ export async function saveChannel(args: Channel) {
 }
 
 export async function deleteChannels() {
-  await kv.delete([BASE_KEY]);
+  const channels = await getChannels();
+  for (let i = 0; i < channels.length; i++) {
+    await kv.delete([BASE_KEY, channels[i].id]);
+  }
 }
 
 export async function deleteChannel(id: Channel["id"]) {

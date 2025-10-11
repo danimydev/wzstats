@@ -28,5 +28,8 @@ export async function saveWeapon(weapon: Weapon) {
 }
 
 export async function deleteWeapons() {
-  await kv.delete([BASE_KEY]);
+  const weapons = await getWeapons();
+  for (let i = 0; i < weapons.length; i++) {
+    await kv.delete([BASE_KEY, weapons[i].id]);
+  }
 }
