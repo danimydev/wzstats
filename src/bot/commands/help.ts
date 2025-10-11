@@ -35,12 +35,12 @@ export function handler(interaction: CommandInteraction<CacheType>) {
             > **Helpers**
             > \`/${command.name}\` - ${command.description}
             > \`/${command.name} <command>\` - Shows command information
-  
+
             > **Commands**
             > \`/${meta.command.name}\` - ${meta.command.description}
             > \`/${subscribe.command.name}\` - ${subscribe.command.description}
             > \`/${unsubscribe.command.name}\` - ${unsubscribe.command.description}
-  
+
             > **Support**
             > :link: Website: https://wzstats.gg
             > :link: Discord Server: https://discord.gg/a5VAfsVr
@@ -63,7 +63,7 @@ export function handler(interaction: CommandInteraction<CacheType>) {
         > \`/${meta.command.name}\`
         > \`/${meta.command.name} <game> - defaults to Warzone Resurgence\`
         > \`/${meta.command.name} <game> <tier> - defaults to META\`
-        
+
         > **Description**
         > ${meta.command.description}
         `,
@@ -75,7 +75,7 @@ export function handler(interaction: CommandInteraction<CacheType>) {
         `
         > **Usage**
         > \`/${subscribe.command.name}\`
-        
+
         > **Description**
         > ${subscribe.command.description}
         `,
@@ -87,7 +87,7 @@ export function handler(interaction: CommandInteraction<CacheType>) {
         `
         > **Usage**
         > \`/${unsubscribe.command.name}\`
-        
+
         > **Description**
         > ${unsubscribe.command.description}
         `,

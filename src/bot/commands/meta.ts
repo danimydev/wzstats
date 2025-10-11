@@ -1,4 +1,4 @@
-import { CacheType, CommandInteraction } from "discord.js";
+import { type CacheType, CommandInteraction } from "discord.js";
 import {
   SlashCommandBuilder,
   SlashCommandStringOption,
