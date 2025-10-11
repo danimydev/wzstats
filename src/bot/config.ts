@@ -1,5 +1,14 @@
-const APPLICATION_ID = Deno.env.get("APPLICATION_ID") || "";
-const TOKEN = Deno.env.get("DISCORD_BOT_TOKEN") || "";
+const APPLICATION_ID = Deno.env.get("APPLICATION_ID");
+const TOKEN = Deno.env.get("DISCORD_BOT_TOKEN");
+
+if (!APPLICATION_ID) {
+  throw new Error("APPLICATION_ID is required");
+}
+
+if (!TOKEN) {
+  throw new Error("TOKEN is required");
+}
+
 const DISCORD_INSTALL_URL =
   `https://discord.com/api/oauth2/authorize?client_id=${APPLICATION_ID}&permissions=380104792064&scope=bot%20applications.commands`;
 

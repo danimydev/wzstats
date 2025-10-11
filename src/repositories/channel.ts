@@ -16,16 +16,21 @@ export async function getChannels() {
   return channels;
 }
 
-export async function addChannel(args: {
-  id: string;
-  type: number;
-}) {
+export async function getChannel(id: Channel["id"]) {
+  return (await kv.get<Channel>([BASE_KEY, id])).value;
+}
+
+export async function saveChannel(args: Channel) {
   await kv.set([BASE_KEY, args.id], {
     id: args.id,
     type: args.type,
   });
 }
 
-export async function deleteChannel(id: string) {
+export async function deleteChannels() {
+  await kv.delete([BASE_KEY]);
+}
+
+export async function deleteChannel(id: Channel["id"]) {
   await kv.delete([BASE_KEY, id]);
 }

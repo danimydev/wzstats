@@ -41,7 +41,7 @@ export default async function ingest() {
   console.log("Fetched data from wzstats.gg");
 
   const addWeaponPromises = weapons.map((weapon) =>
-    weaponsRepository.addWeapon({
+    weaponsRepository.saveWeapon({
       ...weapon,
       imageUrl:
         `https://imagedelivery.net/BN5t48p9frV5wW3Jpe6Ujw/${weapon.id}/gunDisplayLoadouts`,
@@ -65,13 +65,20 @@ export default async function ingest() {
   const addTierListPromises: Promise<void>[] = [];
   for (const id of tierListIds) {
     for (const category of tierListCategories) {
-      addTierListPromises.push(tierListRepository.addTierList({
+      addTierListPromises.push(tierListRepository.saveTierList({
         id,
         category,
         value: wzStatsTierList[id][category],
       }));
     }
   }
+
+  console.log("Deleting existing data...");
+  await Promise.all([
+    weaponsRepository.deleteWeapons,
+    tierListRepository.deleteTierLists,
+  ]);
+  console.log("Existing data was deleted");
 
   console.log("Inserting data into Deno KV...");
   await Promise.all([

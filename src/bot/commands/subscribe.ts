@@ -11,7 +11,7 @@ export async function handler(interaction: CommandInteraction<CacheType>) {
   if (!channel) {
     return interaction.reply("No channel id found");
   }
-  await channelsRepository.addChannel({
+  await channelsRepository.saveChannel({
     id: channel.id,
     type: channel.type,
   });
