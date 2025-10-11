@@ -10,10 +10,23 @@ export type Weapon = {
   imageUrl: string;
 };
 
-export async function getWeapon(id: string) {
+export async function getWeapons() {
+  const weaponsIterator = kv.list<Weapon>({ prefix: [BASE_KEY] });
+  const weapons = [];
+  for await (const e of weaponsIterator) {
+    weapons.push(e.value);
+  }
+  return weapons;
+}
+
+export async function getWeapon(id: Weapon["id"]) {
   return (await kv.get<Weapon>([BASE_KEY, id])).value;
 }
 
-export async function addWeapon(weapon: Weapon) {
+export async function saveWeapon(weapon: Weapon) {
   await kv.set([BASE_KEY, weapon.id], weapon);
+}
+
+export async function deleteWeapons() {
+  await kv.delete([BASE_KEY]);
 }

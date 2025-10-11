@@ -11,6 +11,15 @@ export type TierList = {
   value: string[];
 };
 
+export async function getTierLists() {
+  const tierListsIterator = kv.list<TierList>({ prefix: [BASE_KEY] });
+  const tierLists = [];
+  for await (const e of tierListsIterator) {
+    tierLists.push(e.value);
+  }
+  return tierLists;
+}
+
 export async function getTierList(
   id: TierList["id"],
   category: TierList["category"],
@@ -18,6 +27,10 @@ export async function getTierList(
   return (await kv.get<TierList>([BASE_KEY, id, category])).value;
 }
 
-export async function addTierList(tierList: TierList) {
+export async function saveTierList(tierList: TierList) {
   await kv.set([BASE_KEY, tierList.id, tierList.category], tierList);
+}
+
+export async function deleteTierLists() {
+  await kv.delete([BASE_KEY]);
 }
