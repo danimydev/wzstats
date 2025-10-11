@@ -32,5 +32,8 @@ export async function saveTierList(tierList: TierList) {
 }
 
 export async function deleteTierLists() {
-  await kv.delete([BASE_KEY]);
+  const tierLists = await getTierLists();
+  for (let i = 0; i < tierLists.length; i++) {
+    await kv.delete([BASE_KEY, tierLists[i].id]);
+  }
 }
