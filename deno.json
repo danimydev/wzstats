@@ -6,11 +6,10 @@
     "register-commands": "deno run --allow-env --allow-net --unstable-kv src/bot/scripts/deploy.ts"
   },
   "imports": {
-    "@discordjs/builders": "npm:@discordjs/builders@^1.9.0",
-    "@discordjs/rest": "npm:@discordjs/rest@^2.4.0",
-    "@hono/hono": "jsr:@hono/hono@^4.6.14",
-    "@std/cli": "jsr:@std/cli@^1.0.7",
-    "@std/path": "jsr:@std/path@^1.0.8",
-    "discord.js": "npm:discord.js@^14.16.3"
+    "@discordjs/builders": "npm:@discordjs/builders@1.9.0",
+    "@discordjs/rest": "npm:@discordjs/rest@2.4.0",
+    "@std/cli": "jsr:@std/cli@1.0.7",
+    "@std/path": "jsr:@std/path@1.0.8",
+    "discord.js": "npm:discord.js@14.16.3"
   }
 }
