@@ -9,6 +9,7 @@
     "@discordjs/builders": "npm:@discordjs/builders@1.9.0",
     "@discordjs/rest": "npm:@discordjs/rest@2.4.0",
     "@std/cli": "jsr:@std/cli@1.0.7",
+    "@std/http/file-server": "jsr:@std/http/file-server",
     "@std/path": "jsr:@std/path@1.0.8",
     "discord.js": "npm:discord.js@14.16.3"
   }

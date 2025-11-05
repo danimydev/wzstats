@@ -1,3 +1,4 @@
+import { serveDir } from "@std/http/file-server";
 import * as channelsRepository from "../repositories/channel.ts";
 import * as tierListsRepository from "../repositories/tier-list.ts";
 import * as Utils from "./utils.ts";
@@ -65,6 +66,12 @@ const handler: Deno.ServeHandler<Deno.NetAddr> = async (req) => {
       await ingest();
       return new Response("OK", { status: 200 });
     }
+  }
+
+  if (method === "GET") {
+    return serveDir(req, {
+      fsRoot: "src/public",
+    });
   }
 
   return new Response("Not Found", { status: 404 });
